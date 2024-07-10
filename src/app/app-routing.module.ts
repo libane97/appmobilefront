@@ -27,6 +27,23 @@ const routes: Routes = [
     path: 'customer',
     loadChildren: () => import('./customer/customer.module').then( m => m.CustomerPageModule)
   },
+  {
+    path: 'ordre',
+    loadChildren: () => import('./ordre/ordre.module').then( m => m.OrdrePageModule)
+  },
+  {
+    path: 'list-customer',
+    loadChildren: () => import('./list-customer/list-customer.module').then( m => m.ListCustomerPageModule)
+  },
+  {
+    path: 'list-ordre',
+    loadChildren: () => import('./list-ordre/list-ordre.module').then( m => m.ListOrdrePageModule)
+  },
+  {
+    path: 'showcustomer/:id',
+    loadChildren: () => import('./showcustomer/showcustomer.module').then( m => m.ShowcustomerPageModule)
+  },
+
 ];
 
 @NgModule({

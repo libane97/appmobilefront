@@ -1,0 +1,86 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="tab-bar">
+      <div class="gauche">
+        <span class="username">
+            <a [routerLink]="['/home']" style="color: white;">
+              <ion-icon text="Previous" name="caret-back"></ion-icon>
+            </a>
+        </span>
+      </div>
+      <div class="gauche">
+        <span class="username">Liste des commandes</span>
+      </div>
+      <div class="droit">
+            <a [routerLink]="['/login']">
+              <ion-icon name="cog-outline" class="cog-outline"></ion-icon>
+            </a>
+
+      </div>
+  </div>
+  <div class="content-search">
+     <label for="" class="style-zone">Zone de recherche</label>
+    <ion-row>
+      <form #form="ngForm" (ngSubmit)="search(form)">
+           <div class="zone-search">
+              <select class ="inputClass"   name="cus_id" ngModel id="">
+                <option *ngFor="let item of customers"  value="{{item.id}}">{{item.username}} - {{item.phone}}</option>
+              </select>
+              <ion-input type="date" name="datedebut" class="inputClass" ngModel  placeholder="Date debut"></ion-input>
+              <ion-input type="date" name="datefin" class="inputClass" ngModel  placeholder="Date fin"></ion-input>
+            </div>
+            <ion-button color="tertiary"  type="submit"  [disabled]="form.invalid" expand="block">Search</ion-button>
+        </form>
+    </ion-row>
+  </div>
+  <div class="table">
+    <div class="rowaddline">
+       <ion-button color="tertiary" [routerLink]="['/ordre']">
+         <ion-icon name="add"></ion-icon>
+       </ion-button>
+    </div>
+    <ion-list>
+      <ion-item class="header">
+        <ion-label class="col">Client</ion-label>
+        <ion-label class="col">Quantite</ion-label>
+        <ion-label class="col">Prix</ion-label>
+        <ion-label class="col">Date </ion-label>
+        <ion-label class="col">Etat </ion-label>
+      </ion-item>
+      <ion-item  *ngFor="let d of ordre" >
+        <ion-label class="col">{{d.customer.username}}</ion-label>
+        <ion-label class="col">{{d.qty}}</ion-label>
+        <ion-label class="col">{{d.price}}</ion-label>
+        <ion-label class="col">{{d.datecom}}</ion-label>
+        <ion-label class="col">
+          <span *ngIf="d.status == 0" ><ion-button color="danger"><ion-icon name="cash"></ion-icon></ion-button></span>
+          <span *ngIf="d.status == 1" ><ion-button color="success"><ion-icon name="cash"></ion-icon></ion-button></span>
+        </ion-label>
+      </ion-item>
+      <ion-item class="total" *ngIf="checksearch">
+        <ion-label><span class="label-total">Total :</span>{{ MontantTotalByCommande() || 0 }}</ion-label>
+      </ion-item>
+      <ion-item class="total" *ngIf="checksearch">
+         <form  #form="ngForm" (ngSubmit)="calculer(form)">
+               <div class="paiement">
+                <ion-input type="number" name="montantres" class="inputClass"   ngModel  placeholder="Montant payer"></ion-input>
+                <ion-label *ngIf="checksearch"><span class="label-total">Montant Restant :</span>{{ montantrestant || 0 }}</ion-label>
+               </div>
+              <ion-button color="tertiary"  type="submit"  [disabled]="form.invalid" expand="block">Valider</ion-button> 
+         </form>
+      </ion-item>
+      <ion-item class="total" *ngIf="checksearch">
+        <form  #form="ngForm" (ngSubmit)="savepaie(form)">
+          <div class="paiement">
+            <ion-input type="number" name="montantres" class="inputClass"   ngModel [value]="montantrestant"></ion-input>
+          </div>
+         <ion-button color="tertiary"  type="submit"  [disabled]="form.invalid" expand="block">Enregistre</ion-button> 
+    </form>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

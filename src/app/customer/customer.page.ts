@@ -17,7 +17,9 @@ export class CustomerPage implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+     this.getAllCustomer();
+  }
 
   save(form){
     this.customer.username = form.value.username;
@@ -27,10 +29,12 @@ export class CustomerPage implements OnInit {
     this.customerService.store(this.customer)
     .subscribe((resul: any) => {
          console.log(resul);
+         this.getAllCustomer();
          this.presentToast(resul.success);
         if(resul.code == 200){
           form.reset();
-          this.router.navigateByUrl('home')
+          this.router.navigateByUrl('/list-customer')
+
         }
     },
     err => {
@@ -48,4 +52,12 @@ export class CustomerPage implements OnInit {
     toast.present();
   }
 
+  getAllCustomer(){
+    this.customerService.getAll()
+    .subscribe(data => {
+        console.log(data);  
+    },err => {
+          console.log(err);   
+    })
+  }
 }

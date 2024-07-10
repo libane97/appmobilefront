@@ -1,0 +1,94 @@
+
+.container{
+    top: 3%;
+    position: relative;
+  }
+  
+  
+  .tab-bar{
+    background-color:#7f00ff;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid  #b7c9e7;
+    border-radius: 0px 0px .8rem .8rem ;
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between;
+  
+  }
+  
+  .cog-outline{
+   font-size: 25px;
+   color:  white;
+  }
+  .gauche{
+   display: flex;
+   flex-direction: column;
+  
+  }
+  .w{
+   font-size: 12px;
+   font-weight: lighter;
+   margin-left: 5px;
+   color:white;
+   font-style: italic;
+  }
+  
+  .username
+  {
+  color:white;
+  font-style: oblique;
+  }
+  
+  
+  .card
+  {
+  border: 1px solid #7f00ff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  }
+  
+.text-a{
+color: white;
+font-size: 2rem;
+}
+
+.inputdiv{
+padding: 10px;
+}
+
+
+.inputClass {
+border-bottom: .5px solid #7f00ff;
+
+}
+
+ion-button{
+padding-left: 20px;
+padding-right: 20px;
+}
+
+
+.inputdiv{
+    padding: 10px;
+}
+
+.inputdiv select{
+    color: #7f00ff;
+    border: 1px solid #7f00ff;
+    padding: 4px;
+    border-radius: 5px;
+}
+  
+.inputdiv ion-input{
+  border: 1px solid #7f00ff;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+

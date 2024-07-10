@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="tab-bar">
+      <div class="gauche">
+        <span class="username">
+            <a [routerLink]="['/list-ordre']" style="color: white;">
+              <ion-icon text="Previous" name="caret-back"></ion-icon>
+            </a>
+        </span>
+      </div>
+      <div class="gauche">
+        <span class="username">Ajouter un commande</span>
+      </div>
+      <div class="droit">
+            <a [routerLink]="['/login']">
+              <ion-icon name="cog-outline" class="cog-outline"></ion-icon>
+            </a>
+
+      </div>
+  </div>
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="card">
+          <form #form="ngForm" (ngSubmit)="save(form)">
+            <div class="contente" >
+              <div class="inputdiv">
+                <ion-input   class ="inputClass"  name="datecom" ngModel type="date" placeholder="Date de creation"  ngModel required></ion-input>
+              </div>
+              <div class="inputdiv">
+                 <select class ="inputClass"  name="cus_id" ngModel id="">
+                     <option *ngFor="let item of list"  value="{{item.id}}">{{item.username}} - {{item.phone}}</option>
+                 </select>
+              </div>
+              <div class="inputdiv">
+                  <select class ="inputClass" name="produit" ngModel id="">
+                    <option value="Particulier">Particulier</option>
+                    <option value="Sogik">Sogik</option>
+                  </select>
+              </div>
+              <div class="inputdiv">
+                <ion-input   class ="inputClass" name="qty" type="number" placeholder="Quantite" ngModel required ></ion-input>
+              </div>
+              <div class="inputdiv">
+                <ion-input   class ="inputClass" name="price" type="number" placeholder="Prix" ngModel required ></ion-input>
+              </div>
+            </div>
+            <div>
+                  <ion-button color="tertiary"  type="submit"  [disabled]="form.invalid" expand="block">Enregister</ion-button>
+            </div>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
