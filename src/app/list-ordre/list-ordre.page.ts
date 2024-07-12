@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../service/customer.service';
-import { ToastController } from '@ionic/angular';
+import { InfiniteScrollCustomEvent, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list-ordre',
@@ -152,6 +152,13 @@ export class ListOrdrePage implements OnInit {
       duration: 3000,
     });
     toast.present();
+  }
+
+  onIonInfinite(ev) {
+    this.getAllordre();
+    setTimeout(() => {
+      (ev as InfiniteScrollCustomEvent).target.complete();
+    }, 500);
   }
 
 }

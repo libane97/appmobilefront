@@ -16,7 +16,7 @@
         <span class="username">Liste des commandes</span>
       </div>
       <div class="droit">
-            <a [routerLink]="['/login']">
+            <a [routerLink]="['/setting']">
               <ion-icon name="cog-outline" class="cog-outline"></ion-icon>
             </a>
 
@@ -82,5 +82,8 @@
     </form>
       </ion-item>
     </ion-list>
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </div>
 </ion-content>

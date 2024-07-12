@@ -43,6 +43,15 @@ const routes: Routes = [
     path: 'showcustomer/:id',
     loadChildren: () => import('./showcustomer/showcustomer.module').then( m => m.ShowcustomerPageModule)
   },
+  {
+    path: 'setting',
+    loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
+  },  {
+    path: 'forgot',
+    loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+
+
 
 ];
 

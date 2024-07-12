@@ -16,7 +16,7 @@
         <span class="username">Liste des clients</span>
       </div>
       <div class="droit">
-            <a [routerLink]="['/login']">
+            <a [routerLink]="['/setting']">
               <ion-icon name="cog-outline" class="cog-outline"></ion-icon>
             </a>
       </div>
@@ -27,7 +27,15 @@
        <ion-button color="tertiary" [routerLink]="['/customer']">
          <ion-icon name="person-add-outline"></ion-icon>
        </ion-button>
+       <div class="inputdiv">
+            <form #form="ngForm" (ngSubmit)="search(form)" class="form">
+              <ion-searchbar showCancelButton="focus" name="phone" [(ngModel)]="phone" autocomplete="on" placeholder="Numero de Telephone"  class="custom"></ion-searchbar>
+              <ion-button color="tertiary" type="submit" ><ion-icon name="search"></ion-icon></ion-button>
+              <ion-button color="tertiary" type="submit"><ion-icon name="refresh"></ion-icon></ion-button>
+            </form>
+      </div>
     </div>
+    <ion-loading *ngIf="loading == true"  trigger="open-loading" message="chargement..." duration="3000"></ion-loading>
     <ion-list>
       <ion-item class="header">
         <ion-label class="col">Nom </ion-label>
@@ -46,5 +54,8 @@
         </ion-label>
       </ion-item>
     </ion-list>
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
    </div>
 </ion-content>

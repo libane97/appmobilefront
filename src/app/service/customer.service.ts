@@ -68,4 +68,12 @@ export class CustomerService {
    return this.http.get(this.apiUrl + 'paie/paie-restant/' + idp + '/' + ch);
  }
 
+ searchCustomer(phone){
+   return this.http.get(this.apiUrl + 'customer/search/' +phone);
+ }
+
+ updatePassword(user)
+ {
+   return this.http.post(this.apiUrl + 'user/rest-password',user);
+ }
 }

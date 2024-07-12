@@ -1,7 +1,7 @@
 
     .container
     {
-        top: 3%;
+        top: 2%;
         position: relative;
     }
   
@@ -25,7 +25,7 @@
    font-size: 25px;
    color:  white;
   }
-  .gauche
+  .gauche 
   {
    display: flex;
    flex-direction: column;
@@ -63,11 +63,7 @@
     color: white;
     font-size: 2rem;
   }
-  
-  .inputdiv
-  {
-    padding: 10px;
-  }
+
   
   
   .inputClass
@@ -76,11 +72,6 @@
   
   }
   
-  ion-button
-  {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 .row {
      
      display: flex;
@@ -89,6 +80,8 @@
 }
 .rowaddline{
   padding-top: 50px;
+  display: flex;
+  flex-direction: row-reverse;
 }
 .header{
     padding-top: 5px;
@@ -112,4 +105,31 @@
 
 .row:last-child .col {
     border-bottom: solid 1px grey;
+}
+.inputdiv{
+   display: flex;
+   flex-direction: row;
+}
+
+ion-searchbar.custom {
+  --background: #fff;
+  --color:#7f00ff;
+  --placeholder-color: #7f00ff;
+  --icon-color: #7f00ff;
+  --clear-button-color: #7f00ff;
+  
+}
+
+ion-searchbar.ios.custom {
+  --cancel-button-color: #19422d;
+  border: 1px solid #7f00ff;
+}
+
+ion-searchbar.md.custom {
+  --cancel-button-color: #7f00ff;
+}
+
+.form {
+   display: flex;
+   flex-direction: row;
 }

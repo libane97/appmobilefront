@@ -1,0 +1,42 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="tab-bar">
+      <div class="gauche">
+        <span class="w">Modification de mot de passe</span>
+        <span class="username">Ayanleh Ismail Djama</span>
+      </div>
+      <div class="droit">
+
+            <a [routerLink]="['/setting']">
+              <ion-icon name="cog-outline" class="cog-outline"></ion-icon>
+            </a>
+
+      </div>
+  </div>
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+              <form #form="ngForm" (ngSubmit)="updatepassword(form)">
+                <div class="contente" >
+                  <div class="inputdiv">
+                    <ion-input   class ="inputClass"  name="old_password" ngModel="" type="password" placeholder="Mot de passe actuel"  ngModel required></ion-input>
+                  </div>
+                  <div class="inputdiv">
+                    <ion-input   class ="inputClass" name="new_password" type="password" placeholder="nouveau mot de passe" ngModel required ></ion-input>
+                  </div>
+                  <div class="inputdiv">
+                    <ion-input   class ="inputClass" name="confirmed_password" type="password" placeholder="Confirme le mot de passe" ngModel required ></ion-input>
+                  </div>
+                </div>
+                <div>
+                      <ion-button color="tertiary"  type="submit"  [disabled]="form.invalid" expand="block">Enregister</ion-button>
+                </div>
+              </form>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
